@@ -62,13 +62,13 @@ const Grupos = () => {
             </div>
             <div className="grupo-list-container">
                 {!error &&
-                    (filteredGrupos ? (
+                    (filteredGrupos.length > 0 ? (
                         <GrupoList grupos={filteredGrupos} />
                     ) : (
                         <p>No se encontraron grupos</p>
                     ))}
             </div>
-            {totalPages > 1 ? (
+            {totalPages > 1 && (
                 <div className="flex gap-3 justify-center my-16">
                     <button
                         disabled={page === 1}
@@ -86,8 +86,6 @@ const Grupos = () => {
                         <MdKeyboardDoubleArrowRight className="text-xl" />
                     </button>
                 </div>
-            ) : (
-                ''
             )}
             <Footer />
         </motion.div>
